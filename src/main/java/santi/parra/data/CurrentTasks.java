@@ -16,8 +16,8 @@ public class CurrentTasks {
         }
     }
 
-    private void completeTask(Task task) {
-        Task existingTask = currentTasks.get(task.getTaskName());
+    public void completeTask(String taskName) {
+        Task existingTask = currentTasks.get(taskName);
         if (existingTask == null) {
             Logger.log("No task found");
         } else {
@@ -32,5 +32,12 @@ public class CurrentTasks {
 
     public void setCurrentTasks(Map<String, Task> currentTasks) {
         this.currentTasks = currentTasks;
+    }
+
+    @Override
+    public String toString() {
+        return "CurrentTasks{" +
+                "currentTasks=" + currentTasks +
+                '}';
     }
 }

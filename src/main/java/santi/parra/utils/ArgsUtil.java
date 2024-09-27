@@ -5,7 +5,7 @@ import santi.parra.data.Category;
 
 public class ArgsUtil {
 
-    public Args getArgs(String[] args) {
+    public Args parseArgs(String[] args) {
         if (!validate(args)) {
             throw new RuntimeException("Invalid arguments");
         }
@@ -19,9 +19,8 @@ public class ArgsUtil {
             case "report"-> "task".equals(args[1]) ? Commands.REPORT_TASKS : 
                 "category".equals(args[1]) ? Commands.REPORT_CATEGORIES : 
                         null;
-
             default ->
-                    throw new IllegalStateException
+                    throw new RuntimeException
                             ("Unexpected value: " + cmdString);
         };
 
