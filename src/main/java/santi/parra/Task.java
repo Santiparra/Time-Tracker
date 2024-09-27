@@ -8,15 +8,17 @@ public class Task {
     private Category category;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
+    private TaskStatus status;
 
     public Task() {
     }
 
-    public Task(String taskName, Category category, LocalDateTime startTime, LocalDateTime endTime) {
+    public Task(String taskName, Category category, LocalDateTime startTime, LocalDateTime endTime, TaskStatus status) {
         this.taskName = taskName;
         this.category = category;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.status = status;
     }
 
     public String getTaskName() {
@@ -49,5 +51,13 @@ public class Task {
 
     public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
+    }
+
+    public TaskStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(TaskStatus status) {
+        this.status = status;
     }
 }
