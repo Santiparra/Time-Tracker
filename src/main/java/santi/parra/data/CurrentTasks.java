@@ -41,11 +41,19 @@ public class CurrentTasks {
     }
 
     public Map<String, Duration> getCategoryReport() {
+        Map<String, Duration> categoryReport = new HashMap<>();
         currentTasks
                 .values()
                 .stream()
                 .filter(task -> task.getEndTime() != null)
-
+                .forEach(task -> {
+                    Duration categoryDuration = categoryReport.getOrDefault(
+                            task.getCategory().getName(),
+                            Duration.ZERO
+                            );
+                    categoryReport.put(task.getCategory().getName(), categoryDuration.plus(task.getTaskDuration()));
+                });
+        return categoryReport;
     }
 
     public Map<String, Task> getCurrentTasks() {
