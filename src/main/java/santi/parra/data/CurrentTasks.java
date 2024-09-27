@@ -1,4 +1,6 @@
-package santi.parra;
+package santi.parra.data;
+
+import santi.parra.Logger;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;

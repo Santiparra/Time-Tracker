@@ -1,4 +1,4 @@
-package santi.parra;
+package santi.parra.data;
 
 public class Category {
     private String name;

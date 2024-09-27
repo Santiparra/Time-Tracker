@@ -1,4 +1,4 @@
-package santi.parra;
+package santi.parra.data;
 
 import java.time.LocalDateTime;
 
