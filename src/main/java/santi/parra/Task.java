@@ -13,6 +13,13 @@ public class Task {
     public Task() {
     }
 
+    public Task(String taskName, Category category) {
+        this.taskName = taskName;
+        this.category = category;
+        this.startTime = LocalDateTime.now();
+        this.status = TaskStatus.IN_PROGRESS;
+    }
+
     public Task(String taskName, Category category, LocalDateTime startTime, LocalDateTime endTime, TaskStatus status) {
         this.taskName = taskName;
         this.category = category;
@@ -60,4 +67,16 @@ public class Task {
     public void setStatus(TaskStatus status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "taskName='" + taskName + '\'' +
+                ", category=" + category +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", status=" + status +
+                '}';
+    }
+
 }
