@@ -10,7 +10,7 @@ public class CurrentTasks {
 
     private Map<String, Task> currentTasks = new HashMap<>();
 
-    private void startTask(Task task) {
+    public void startTask(Task task) {
         if (currentTasks.putIfAbsent(task.getTaskName(), task) != null) {
             Logger.log("Task already exist, skipping!");
         }

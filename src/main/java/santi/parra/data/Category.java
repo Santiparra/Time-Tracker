@@ -1,6 +1,9 @@
 package santi.parra.data;
 
 public class Category {
+
+    public static final String NONE = "no-category";
+
     private String name;
     private int totalTime;
 
