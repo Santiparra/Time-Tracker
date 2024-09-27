@@ -1,5 +1,8 @@
 package santi.parra;
 
+import santi.parra.data.Category;
+import santi.parra.data.Task;
+
 import java.util.Arrays;
 
 public class TimeTracker {
@@ -9,6 +12,12 @@ public class TimeTracker {
         }
         String command = args[0];
 
+        switch (command) {
+            case "start":
+                String taskName = args[1];
+                String categoryName = args.length == 3 ? args[2] : null;
+                Task task = new Task(taskName, new Category(categoryName));
+        }
 
     }
 }
