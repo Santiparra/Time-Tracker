@@ -16,7 +16,7 @@ public class ArgsUtil {
         Commands command = switch (cmdString) {
             case "start"-> Commands.TASK_START;
             case "stop"-> Commands.TASK_STOP;
-            case "report"-> "task".equals(args[1]) ? Commands.REPORT_TASKS : 
+            case "report"-> "task".equals(args[1]) ? Commands.REPORT_TASK :
                 "category".equals(args[1]) ? Commands.REPORT_CATEGORIES : 
                         null;
             default ->

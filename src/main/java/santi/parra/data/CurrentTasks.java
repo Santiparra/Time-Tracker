@@ -47,8 +47,9 @@ public class CurrentTasks {
                 .stream()
                 .filter(task -> task.getEndTime() != null)
                 .forEach(task -> {
+                    String category = task.getCategory().getName();
                     Duration categoryDuration = categoryReport.getOrDefault(
-                            task.getCategory().getName(),
+                            category,
                             Duration.ZERO
                             );
                     categoryReport.put(task.getCategory().getName(), categoryDuration.plus(task.getTaskDuration()));

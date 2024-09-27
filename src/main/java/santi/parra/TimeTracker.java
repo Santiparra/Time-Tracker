@@ -30,7 +30,7 @@ public class TimeTracker {
                 currentTasks.startTask(task);
             }
             case TASK_STOP -> currentTasks.completeTask(arguments.getTaskName());
-            case REPORT_TASKS -> {
+            case REPORT_TASK -> {
                 Map<String, Duration> taskReport = currentTasks.getTaskReport();
                 for (Map.Entry<String, Duration> entry : taskReport.entrySet()) {
                     System.out.println("Task: " + entry.getKey());
@@ -38,8 +38,13 @@ public class TimeTracker {
                 }
             }
             case REPORT_CATEGORIES -> {
-
+                Map<String, Duration> categoryReport = currentTasks.getCategoryReport();
+                for (Map.Entry<String, Duration> entry : categoryReport.entrySet()) {
+                    System.out.println("Category: " + entry.getKey());
+                    System.out.println("Duration in minutes" + entry.getValue().toMinutes());
+                }
             }
+            default -> System.out.println("Something went wrong");
 
         }
         fileUtil.saveTasksToFile(currentTasks);
