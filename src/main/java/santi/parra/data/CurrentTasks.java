@@ -2,9 +2,11 @@ package santi.parra.data;
 
 import santi.parra.Logger;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class CurrentTasks {
 
@@ -28,6 +30,22 @@ public class CurrentTasks {
             existingTask.setEndTime(LocalDateTime.now());
             existingTask.setStatus(TaskStatus.COMPLETE);
         }
+    }
+
+    public Map<String, Duration> getTaskReport() {
+        return currentTasks
+                .values()
+                .stream()
+                .filter(task -> task.getEndTime() != null)
+                .collect(Collectors.toMap(Task::getTaskName, Task::getTaskDuration));
+    }
+
+    public Map<String, Duration> getCategoryReport() {
+        currentTasks
+                .values()
+                .stream()
+                .filter(task -> task.getEndTime() != null)
+
     }
 
     public Map<String, Task> getCurrentTasks() {

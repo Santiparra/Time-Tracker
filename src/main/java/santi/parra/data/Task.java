@@ -1,5 +1,6 @@
 package santi.parra.data;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class Task {
@@ -81,10 +82,16 @@ public class Task {
 
     public String getCsvFormat() {
         return taskName + ',' +
-                category + ',' +
+                category.getName() + ',' +
                 startTime + ',' +
                 endTime + ',' +
                 status;
     }
 
+    public Duration getTaskDuration() {
+        if (this.getEndTime() == null) {
+            return null;
+        }
+        return Duration.between(this.getStartTime(), this.getEndTime());
+    }
 }

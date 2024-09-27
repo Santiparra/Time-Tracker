@@ -29,8 +29,14 @@ public class FileUtil {
                 .map(tokenArray -> new Task(
                         tokenArray[0],
                         new Category(tokenArray[1]),
-                        LocalDateTime.parse(tokenArray[2]),
-                        tokenArray[3] == null || tokenArray[3].isBlank() ?
+                        tokenArray[2] == null ||
+                                "null".equals(tokenArray[2]) ||
+                                tokenArray[2].isBlank() ?
+                                null :
+                                LocalDateTime.parse(tokenArray[2]),
+                        tokenArray[3] == null
+                                || "null".equals(tokenArray[3])
+                                || tokenArray[3].isBlank() ?
                                 null :
                                 LocalDateTime.parse(tokenArray[3]),
                         TaskStatus.valueOf(tokenArray[4])
